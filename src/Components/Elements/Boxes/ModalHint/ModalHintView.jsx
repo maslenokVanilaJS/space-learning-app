@@ -15,6 +15,7 @@ export const ModalHintView=({props})=>{
             <SimpleCheckBox props={{ 
                 action:props.confirmAction,
                 dispatch:props.dispatch
+                
             }}></SimpleCheckBox>
             <BasicBtn  onClick={()=>{
                 props.confirmChange(!props.confirmState);
