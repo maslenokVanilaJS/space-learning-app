@@ -73,7 +73,7 @@ grid-gap:10px;">
                 title:'Click to Slider',
 
                             click: () => { props.handleClick(true); props.dispatch(props.OPEN_SFS());
-                               
+                                props.dispatch(props.TOGGLE_HINTVIEW_GLOBAL(false));
                                 console.log("props.slider"); }
             }}></ImageDisplay>
 

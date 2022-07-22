@@ -6,7 +6,9 @@ import { useDispatch,useSelector } from "react-redux";
 import { GET_APOD_LASTD, args, args1,TOGGLE_LANG, OPEN_SFS } from '../../../../store/APODReducer/thunk';
 import { testApi, query } from '../../../../services/FetchAPI/fetchAnything';
 import { APOD_CPIL_MAP } from '../../../../services/APODLOGIC/ChoicePreviewIconLogic';
-import { CONFIRM_HINT_READ_BUTTON, DONTSHOWMORE_CHECKBOX_ACTION } from './../../../../store/UI_HintReducer/thunk';
+import {
+    CONFIRM_HINT_READ_BUTTON, DONTSHOWMORE_CHECKBOX_ACTION, TOGGLE_HINTVIEW_GLOBAL
+ } from './../../../../store/UI_HintReducer/thunk';
  
 export  const APOD=({props})=>{
 const [APOD_Data,Set_APOD_Data]= useState(null);
@@ -99,7 +101,8 @@ if (state.load) {
             OPEN_SFS,
             UI_HintReducer,
             DONTSHOWMORE_CHECKBOX_ACTION,
-            CONFIRM_HINT_READ_BUTTON
+            CONFIRM_HINT_READ_BUTTON,
+            TOGGLE_HINTVIEW_GLOBAL
         }}></APODview></div>
         
 

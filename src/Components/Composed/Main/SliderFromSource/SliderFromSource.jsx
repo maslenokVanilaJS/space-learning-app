@@ -4,6 +4,7 @@ import { css } from './css';
 import { SliderFromSourceView } from './SliderFromSourceView';
 import { SFS_Logic } from './../../../../services/SliderFromSourceLogic/logic';
 import { args3, SLIDER_NEXT } from './../../../../store/APODReducer/thunk';
+import useBlockScroll from './../../../../hooks/useBlockScroll';
 
  export const SliderFromSource =({props})=>{
 
@@ -19,6 +20,8 @@ const styles={
 
     image:css.cssImage
 }
+
+   useBlockScroll();
 
     return (
         <div>

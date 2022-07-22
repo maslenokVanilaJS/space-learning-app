@@ -46,7 +46,9 @@ if (mouseRect.x>this.center) {
  
 }
 
-
+blockScroll(){
+    
+}
 
 }
 
