@@ -12,7 +12,10 @@ export const ChoiceIlustratedPreview =({props})=>{
     const [animation, setanimation] = useState(false);
     const h1=props.h1;
     const text=props.text;
-    
+    const componentsTop=props.componentsTop
+    const composeTop=props.component;
+    const composeTop1 = props.component1;
+
 console.log(props.source);
 
 
@@ -24,7 +27,10 @@ if (source&& source.lenght!=0) {
         animation,
         h1,
         text,
-        dispatch
+        dispatch,
+        composeTop,
+        composeTop1,
+        componentsTop
         
     }}></ChoiceIlustratedPreviewView>
     )  

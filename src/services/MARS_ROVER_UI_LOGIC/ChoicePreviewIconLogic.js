@@ -19,9 +19,17 @@ export const MARSROVER_CPIL_MAP= function (props,item,dispatch){
     }
 
     if (!item.thumbnail_url) {
-        return <PreviewIcon
+        if (item.img_src) {
+            return <PreviewIcon
             onClick={() => { setView(props.source, item.id,dispatch) }} key={`${item.id}`}
             width="10vw;" height="10vw;" src={`${item.img_src}`} alt="" />
+        }
+        if (!item.img_src) {
+            return <PreviewIcon
+            onClick={() => { setView(props.source, item.id,dispatch) }} key={`${item.id}`}
+            width="10vw;" height="10vw;" src={`https://avatars.mds.yandex.net/i?id=05a4d9c4b24a98aba10c7f675525a4d2-5427052-images-thumbs&n=13&exp=1`} alt="" />
+        }
+        
     }
 }
 

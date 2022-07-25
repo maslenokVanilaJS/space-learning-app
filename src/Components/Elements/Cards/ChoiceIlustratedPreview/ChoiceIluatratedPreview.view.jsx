@@ -11,10 +11,15 @@ export const ChoiceIlustratedPreviewView = ({ props }) => {
          Display={props.props.Display} 
          flexStyles={props.props.flexStyles}
          gridElement={props.props.gridElement}>
-         
+       
           <Wrapper width='100vw;'>
             <HeadingDisplay props={props.h1}></HeadingDisplay>
+         
+
             </Wrapper>
+            {(props.componentsTop)?props.componentsTop.map((el)=>{return el.component}):null
+            }
+       
             {props.source.map((item)=>{
                 
             return   props.logic(props,item,props.dispatch);
