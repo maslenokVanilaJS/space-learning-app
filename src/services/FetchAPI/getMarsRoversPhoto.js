@@ -27,7 +27,9 @@ class GET_MARSROVER_PHOTOS{
         this.camera={
             curiosity:`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=${API_KEY}`,
             opportunity:`https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?api_key=${API_KEY}`,
-            spirit:`https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?api_key=${API_KEY}`
+            spirit:`https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?api_key=${API_KEY}`,
+            perseverance:`https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?api_key=${API_KEY}`
+
         };
     }
 
@@ -91,6 +93,15 @@ class GET_MARSROVER_PHOTOS{
          fetch(`${this.camera.spirit}&earth_date=${date}&camera=${camera}`).then(res=>res.json()).then((res)=>{console.log(res,new TodayDate().todayDate)
                     dispatch(args.creator.CREATOR(args.type,res.photos.getRandomArrayElements(5)));
              console.log(`${this.camera.spirit}&earth_date=${date}&camera=${camera}`);
+
+        });
+   
+        }
+
+        if (rover=="perseverance") {
+         fetch(`${this.camera.perseverance}&earth_date=${date}&camera=${camera}`).then(res=>res.json()).then((res)=>{console.log(res,new TodayDate().todayDate)
+                    dispatch(args.creator.CREATOR(args.type,res.photos.getRandomArrayElements(5)));
+             console.log(`${this.camera.perseverance}&earth_date=${date}&camera=${camera}`);
 
         });
    

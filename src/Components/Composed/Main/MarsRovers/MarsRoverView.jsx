@@ -26,7 +26,7 @@ grid-gap:10px;">
                 text:props.text,
                 componentsTop: [
                     { component: <SimpleSelect props={{ options: props.SelectOptionData, onChange: props.setchoosedRover ,default:props.defaultValues.rover}} ></SimpleSelect>},
-                    { component: <SimpleSelect props={{ options: props.SelectOptionData_RequestType, default: props.defaultValues.requestType, onChange: props.setrequestType}} ></SimpleSelect>},
+                    { component: <SimpleSelect props={{ options: props.requestTypeData, default: props.defaultValues.requestType, onChange: props.setrequestType}} ></SimpleSelect>},
                     { component: <Date props={{visible:props.date,date:props.dateValue,onChange:props.setdateValue}}></Date>}
                 ],
                 
