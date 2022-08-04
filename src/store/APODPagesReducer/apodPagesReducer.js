@@ -1,7 +1,7 @@
 import { actionType } from './const';
 
 
-const apodStore={
+const apodPagesStore={
     load:false,
     loadRu:false,
     lastDaysEng:null,
@@ -15,7 +15,7 @@ const apodStore={
 
 
 
-export const apodReducer=(state = apodStore, action) => {
+export const apodPagesReducer=(state = apodPagesStore, action) => {
     switch (action.type) {
 
     case actionType.GET_APOD_LASTD:

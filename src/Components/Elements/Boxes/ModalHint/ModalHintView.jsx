@@ -10,7 +10,7 @@ export const ModalHintView=({props})=>{
     console.log(props);
     return(
         <ModalBox top="20%" left="20%" css={cssModalBox+' '+ css}>
-            <HeadingDisplay props={ props.hintTitle }></HeadingDisplay>
+            <HeadingDisplay props={ {h1:props.hintTitle} }></HeadingDisplay>
             <TextBox props={props.hint}></TextBox>
             <SimpleCheckBox props={{ 
                 action:props.confirmAction,

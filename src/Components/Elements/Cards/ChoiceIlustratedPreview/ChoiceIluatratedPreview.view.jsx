@@ -13,7 +13,7 @@ export const ChoiceIlustratedPreviewView = ({ props }) => {
          gridElement={props.props.gridElement}>
        
           <Wrapper width='100vw;'>
-            <HeadingDisplay props={props.h1}></HeadingDisplay>
+            <HeadingDisplay props={{h1:props.h1}}></HeadingDisplay>
          
 
             </Wrapper>

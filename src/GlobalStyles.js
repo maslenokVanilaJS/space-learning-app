@@ -1,15 +1,13 @@
-export const defaultStyles=`
-background:white;
-padding:20px;
-&:hover{
-    box-shadow: 0px -2px 11px 0px rgba(34, 60, 80, 0.2);
-}
-border-radius:5px;
-{
+
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyles=createGlobalStyle`
+body{
+    {
   scrollbar-width: thin;
   scrollbar-color: blue white;
 }
-border-color:blue;
+
  
  ::-webkit-scrollbar {
   height: 12px;
@@ -22,5 +20,6 @@ border-color:blue;
   background-color: blue;
   border-radius: 5px;
   border: 3px solid white;
+}
 }
 `
