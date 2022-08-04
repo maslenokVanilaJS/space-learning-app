@@ -1,14 +1,16 @@
 
+import { Option } from './Option/Option.styled';
+import { SimpleSelectStyled } from './SimpleSelect.styled';
 export  const SimpleSelectView=({props})=>{
 
     console.log(props)
     return (
-        <select onChange={(event)=>{props.onChange(event.target.value)}} defaultValue={props.default} size="3">
+        <SimpleSelectStyled onChange={(event)=>{props.onChange(event.target.value)}} defaultValue={props.default} size="3">
             {
                 props.options.map((el)=>{
-                return <option value={el.value}>{el.option}</option>
+                return <Option props={props.css} value={el.value}>{el.option}</Option>
                 })
             }
-        </select>
+        </SimpleSelectStyled>
     )
 }
