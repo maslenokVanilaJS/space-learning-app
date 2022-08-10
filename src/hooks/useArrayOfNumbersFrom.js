@@ -1,15 +1,19 @@
 import { useEffect } from "react"
 
 
- export function useArrayOfNumbersFrom(number){
+ export function useArrayOfNumbersFrom(number,set,watch){
+ useEffect(()=>{
+    
+     let arrayOfNumbers=[];
 
-    let arrayOfNumbers=[];
-
-    for (let index = 1; index <= number; index++) {
+     for (let index = 1; index <= number; index++) {
         arrayOfNumbers.push(index);
         
     }
     console.log(number);
-    return {arrayOfNumbers};
 
+   set(arrayOfNumbers);
+
+    },watch)
+ 
 }

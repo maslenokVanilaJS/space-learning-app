@@ -18,17 +18,35 @@ padding:10px;
  `;
     export const NumberedNav=({props})=>{
         const [pagesNumber, setpagesNumber] = useState(null); 
-        const {contentAmount,contentQuantity}=props;
-        console.log(contentAmount,  contentQuantity)
-
-        let { arrayOfNumbers } = useArrayOfNumbersFrom(Math.floor(contentAmount / contentQuantity));
-        console.log(arrayOfNumbers)
+        const [contentAmount, setcontentAmount] = useState(props.contentAmount);
+        const [contentQuantity, setcontentQuantity] = useState(props.contentQuantity);
+        const [current, setcurrent] = useState(null);
+        const{onClick}=props;
+        console.log(contentAmount, props.contentQuantity)
+        
         useEffect(() => {
+            console.log(props.contentAmount, contentQuantity)
 
-            setpagesNumber(arrayOfNumbers);
+            setcontentAmount(props.contentAmount);
+            console.log(contentAmount, contentQuantity)
+
+            let number = Math.floor(props.contentAmount / props.contentQuantity);
+            let arrayOfNumbers = [];
+
+            if (props.contentAmount<=1) {
+                number=1;
+            }
+            for (let index = 1; index <= number; index++) {
+                arrayOfNumbers.push(index);
+
+            }
+            console.log(arrayOfNumbers);
+setpagesNumber(arrayOfNumbers);
+            console.log(contentAmount, props.contentQuantity)
 
 
-        }, []);
+        }, [props.contentAmount, props.contentQuantity]);
+        
        
         
 
@@ -37,7 +55,10 @@ padding:10px;
             
     (pagesNumber)?<NumberedNavView props={{css,
                             pagesNumber,
-                            defaultStyles  }}>
+                            current,
+                            setcurrent,
+                            defaultStyles,
+                            onClick  }}>
                                 
     </NumberedNavView>:null
         )

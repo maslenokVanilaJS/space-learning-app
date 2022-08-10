@@ -21,7 +21,7 @@ function App() {
        props={{h1:'Apod Pages',
               css:"margin-top:50px;"}}>
       </HeadingDisplay>
-      <APODPage props={language}></APODPage>
+      <APODPage props={{language,defaultContentAmount:50,defaultContentQuantity:4,defaultContentPages:null}}></APODPage>
      </div>
     );
 }

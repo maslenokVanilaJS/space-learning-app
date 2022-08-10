@@ -24,18 +24,14 @@ export function useShowOnScrollTarget (target,setVisibility,cancelCondition,stat
              window.addEventListener('scroll',
 
                function handleScroll(){
-             console.log(cancelCondition);
-                if(cancelCondition==true){
+                 if(cancelCondition==true){
             window.removeEventListener('scroll',handleScroll,false);
             console.log('removed')
              setVisibility(false);
-                         console.log(cancelCondition);
-
+ 
         }
-console.log(target)
-    if (isInViewport()) {
-             console.log(target)
-
+     if (isInViewport()) {
+ 
                 setVisibility(false);
 
             }
@@ -61,17 +57,14 @@ console.log(target)
         if(state.hintCheckBox==true){
             window.removeEventListener('scroll',handleScroll,false);
             console.log('removed')
-                         console.log(state.hintCheckBox);
-
+ 
         }
         let states=state.hintCheckBox;
         function handleScroll(){
-             console.log(state.hintCheckBox);
-              
+               
 console.log(target)
     if (isInViewport()) {
-             console.log(target)
-
+ 
                 setVisibility(false);
 
             }

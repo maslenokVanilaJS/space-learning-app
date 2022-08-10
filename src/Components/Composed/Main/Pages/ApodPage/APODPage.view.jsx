@@ -39,8 +39,8 @@
                 }}></ImageDisplay>
 
                : <YouTubeVideo props={{
-                    height: '100%',
-                    width: '100%',
+                    height: '390',
+                    width: '640',
                     url: props.apodData.url,
  
                 }}> </YouTubeVideo>  

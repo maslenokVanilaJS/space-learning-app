@@ -78,8 +78,8 @@ grid-gap:10px;">
             }}></ImageDisplay>
 
                : <YouTubeVideo props={{
-                        height:'100%',
-                        width: '100%',
+                        height:'390',
+                        width: '640',
                         url: props.apodData.url,
                         click: () => { props.handleClick(true);props.setIframeSize({...props.iframeSize,height:'50vh',width:'50vw'}); console.log("props.slider"); }
 

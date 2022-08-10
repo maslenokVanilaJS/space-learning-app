@@ -146,7 +146,7 @@ import { API_KEY } from './../../API/APIKEY';
         }
 
 
-       reduxfetchlastDays(dispatch,args,count) {
+       reduxfetchlastDays(dispatch,args,count,maxLength) {
                  let today = new Date();
         let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         let referent=new Date();
@@ -156,6 +156,10 @@ import { API_KEY } from './../../API/APIKEY';
                 .then(res => res.json())
                 .then((res) => { 
                         console.log(dispatch(args.creator.CREATOR(args.type,res)));
+                        if (maxLength) {
+                                res.reverse();
+                               res.length=maxLength; 
+                        }
                        dispatch(args.creator.CREATOR(args.type,res));
                 
                 }).catch(err => console.log(err)); 
@@ -374,3 +378,4 @@ newTranslate(dispatch,args,count){
         export const translate=new  Translate();
 
         export const GET_APOD = new APOD(API_KEY);
+        export const GET_APOD_Content = new APOD(API_KEY);

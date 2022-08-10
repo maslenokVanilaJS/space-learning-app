@@ -1,8 +1,7 @@
 
 import { HeadingDisplayStyles } from './HeadingDisplay.styled';
 export const HeadingDisplayView=({css,h1})=>{
-    console.log(h1)
-    return(
+     return(
         
         <HeadingDisplayStyles props={{css:css}} >{h1}</HeadingDisplayStyles>
     )

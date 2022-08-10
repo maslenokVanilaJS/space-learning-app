@@ -12,5 +12,6 @@ left:${props => props.left || 'auto'};
 right:${props => props.right || 'auto'};
 bottom:${props => props.bottom || 'auto'};
 ${props => props.css}
+
 text-align: ${props => props.textAlign ||  'center'};
 `
