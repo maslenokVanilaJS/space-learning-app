@@ -22,15 +22,17 @@ padding:10px;
         const [contentQuantity, setcontentQuantity] = useState(props.contentQuantity);
         const [current, setcurrent] = useState(null);
         const{onClick}=props;
-        console.log(contentAmount, props.contentQuantity)
+        console.log(props.contentAmount, props.contentQuantity)
         
         useEffect(() => {
-            console.log(props.contentAmount, contentQuantity)
+            console.log(props.contentAmount, props.contentQuantity)
 
-            setcontentAmount(props.contentAmount);
-            console.log(contentAmount, contentQuantity)
+             console.log(props.contentAmount, props.contentQuantity)
 
             let number = Math.floor(props.contentAmount / props.contentQuantity);
+            if (props.contentAmount < props.contentQuantity) {
+            number=1;
+            }
             let arrayOfNumbers = [];
 
             if (props.contentAmount<=1) {
@@ -42,7 +44,7 @@ padding:10px;
             }
             console.log(arrayOfNumbers);
 setpagesNumber(arrayOfNumbers);
-            console.log(contentAmount, props.contentQuantity)
+            console.log(props.contentAmount, props.contentQuantity)
 
 
         }, [props.contentAmount, props.contentQuantity]);

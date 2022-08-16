@@ -165,6 +165,26 @@ import { API_KEY } from './../../API/APIKEY';
                 }).catch(err => console.log(err)); 
         }
 
+         reduxfetchlastDaysByMediaType(dispatch,args,count,maxLength,mediaType) {
+                 let today = new Date();
+        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        let referent=new Date();
+        referent.setDate(referent.getDate() - count);
+        let start_date=referent.getFullYear()+'-'+(referent.getMonth()+1)+'-'+referent.getDate()
+        fetch(`https://api.nasa.gov/planetary/apod?api_key=${this.key}&start_date=${start_date}&thumbs=true`)
+                .then(res => res.json())
+                .then((res) => { 
+                        console.log(dispatch(args.creator.CREATOR(args.type,res)));
+                        if (maxLength) {
+                                res.reverse();
+                               res.length=maxLength; 
+                        }
+                       dispatch(args.creator.CREATOR(args.type,res.filter(article=>article.media_type===mediaType)));
+                
+                }).catch(err => console.log(err)); 
+        }
+
+
 
         
        reduxfetchlastDaysVideo(dispatch,args,count) {
@@ -191,6 +211,7 @@ import { API_KEY } from './../../API/APIKEY';
                 })
                 .catch(err => console.log(err)); 
         }
+        
 
 
 newTranslate(dispatch,args,count){

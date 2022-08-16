@@ -6,7 +6,10 @@ export const SimpleSelect=({props})=>{
         <SimpleSelectView props={{
             onChange:props.onChange,
             options:props.options,
-            default:props.default
+            default:props.default,
+            extraStyles:props.extraStyles,
+            css:props.css,
+            selectSize:props.selectSize
         }} ></SimpleSelectView>
     )
 }

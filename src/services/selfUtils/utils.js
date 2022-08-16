@@ -37,8 +37,11 @@ function divideArrayInto(quantity) {
     let rest=this.length%quantity;
     let restElements=null;
 
+    if (this.length<quantity) {
+     return [this]
+ }
     if (this.length===1) {
-     return this
+     return [this]
  }
 
     for (let index = 0; index < this.length; index++) {
@@ -65,7 +68,7 @@ function divideArrayInto(quantity) {
          //   log('rest',restElements);
              dividedArray[dividedArray.length-1].push(...restElements);
         }
-      //  log(dividedArray);
+       log(dividedArray);
             return dividedArray;
         }
         
@@ -79,5 +82,8 @@ Array.prototype.getRandomArrayElements=getRandomArrayElements;
 Array.prototype.inverseFlat=divideArrayInto;
 String.prototype.getLastElement=getLastElement;
 
- 
+ let arr=[1,2];
+ console.log(
+     arr.inverseFlat(10)
+ );
 

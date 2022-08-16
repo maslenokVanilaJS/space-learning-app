@@ -12,6 +12,9 @@ export const PaginateView = ({ props }) => {
         <NumberedNav props={{
                 contentAmount: props.ctnAmount,
             contentQuantity: props.contentQuantity,
+            contentAmountByMedia:props.ctnAmountByMedia,
+            contentQuantityByMedia: props.ctnQuantityByMedia,
+
             onClick:props.onClick
          }}></NumberedNav>
         </div>

@@ -5,39 +5,58 @@ import { useEffect } from 'react';
  
 export const Paginate=({props})=>{
    console.log(props)
-    const { contentView,ctnAmount,ctnQuantity,childrensTop,source,setpage,setuserContentQuantity } = props;
-    const [contentAmount, setcontentAmount] = useState(ctnAmount); 
-    const [contentQuantity, setcontentQuantity] = useState(ctnQuantity); 
-    const [pagedContent, setpagedContent] = useState(null);
+    const { contentView, ctnAmount, ctnQuantity, childrensTop,page, source, setpage,setuserContentAmount,setuserContentQuantity } = props;
+   
     const [pageNumber, setpageNumber] = useState(0);
     let slicesFromContentAmount=[];
-    const [userPageChoose, setuserPageChoose] = useState(source.inverseFlat(ctnQuantity)[0]);
+ 
+    useEffect(() => {
+
+        setpageNumber(0);
+    }, [props.ctnAmount, props.ctnQuantity]);
 
     useEffect(() => {
-        if (ctnAmount<ctnQuantity) {
-            setuserContentQuantity(ctnQuantity);
+        if (props.ctnQuantity > props.ctnAmount) {
+            props.setuserContentQuantity(props.ctnAmount);
+            console.log(props.ctnQuantity);
+            setpageNumber(0);
+
         }
-        slicesFromContentAmount = source.inverseFlat(ctnQuantity);
-        console.log(slicesFromContentAmount);
-    }, [source,ctnQuantity]);
-    console.log(ctnAmount)
-    useEffect(() => {
-        console.log(ctnAmount,pageNumber);
+        slicesFromContentAmount = props.source.inverseFlat(props.ctnQuantity);
+console.log(pageNumber);
+
+if(pageNumber<slicesFromContentAmount.length){
+    setpage(slicesFromContentAmount[pageNumber]);
+}
  
-        setpage(source.inverseFlat(ctnQuantity)[pageNumber]);
-    }, [pageNumber,ctnAmount,ctnQuantity]);
-    useEffect(() => {
+        console.log(slicesFromContentAmount);
+        console.log(props.ctnQuantity, props.page)
+
+    }, [props.source, props.ctnQuantity, pageNumber, props.ctnAmount]);
+    console.log(ctnAmount)
+  /*  useEffect(() => {
+        console.log(ctnAmount,pageNumber);
+        if (ctnAmount < ctnQuantity) {
+         //   setuserContentQuantity(ctnAmount);
+        }
         
-setpageNumber(0);
-    }, [ctnAmount, ctnQuantity]);
+          
+            setpage(source.inverseFlat(ctnQuantity)[pageNumber]);
+        console.log(ctnQuantity,page)
+        
+    }, [pageNumber,ctnAmount,ctnQuantity,source]);*/
+    
 
     return (
         <PaginateView props={{
             contentView,
             ctnAmount,
-            setcontentAmount,
-            contentQuantity: ctnQuantity,
-            setcontentQuantity,
+            ctnAmountByMedia:props.setuserContentAmountByMedia,
+            ctnQuantityByMedia: props.setuserContentQuantityByMedia,
+
+            setcontentAmount: props.setuserContentAmount,
+            contentQuantity: props.ctnQuantity,
+            setcontentQuantity: props.setuserContentQuantity,
             childrensTop,
             onClick:setpageNumber
           
